@@ -8,18 +8,33 @@ wiadomość do grupy klasowej.
 
 ## Setup
 
-```
+```bash
 docker pull pniedzwiedzinski/lucky
 
 docker run --rm -it -v ~/.messer:/root/.messer/tmp lucky messer
 # Fill the form with your facebook credentials
+```
 
+Create `~/.messer/config.json` and paste there your configuration:
+
+```json
+{
+  "group": "Your group name",
+  "1": "John Snow",
+  "2": "Perry the Platypus",
+  "3": "Elon MusK"
+}
+```
+
+Finally create container
+
+```bash
 docker run --name lucky_number -v ~/.messer:/root/.messer/tmp lucky send_lucky_number.sh
 ```
 
 ## Usage
 
-```
+```bash
 docker start lucky_number
 ```
 
