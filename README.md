@@ -1,5 +1,6 @@
 # Lucky
 
+[![](https://images.microbadger.com/badges/image/pniedzwiedzinski/lucky.svg)](https://microbadger.com/images/pniedzwiedzinski/lucky "Get your own image badge on microbadger.com")
 ![Made for ZSK](http://zsk.poznan.pl/templates/zsk2013/images/logo.png "ZSK Logo")
 
 Jaki dzisiaj szczęśliwy numerek? Wiesz to na pewno od "Elitarnego numerka".
