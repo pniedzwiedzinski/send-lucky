@@ -9,10 +9,13 @@ wiadomość do grupy klasowej.
 
 ## Setup
 
+If you're using ARM-like architecture (like RaspberryPi) you need to build image yourself. Clone repo and run
+`docker build . -t pniedzwiedzinski/lucky`
+
 ```bash
 docker pull pniedzwiedzinski/lucky
 
-docker run --rm -it -v ~/.messer:/root/.messer/tmp lucky messer
+docker run --rm -it -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky messer
 # Fill the form with your facebook credentials
 ```
 
@@ -30,7 +33,7 @@ Create `~/.messer/config.json` and paste there your configuration:
 Finally create container
 
 ```bash
-docker run --name lucky_number -v ~/.messer:/root/.messer/tmp lucky send_lucky_number.sh
+docker run --name lucky_number -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky send_lucky_number.sh
 ```
 
 ## Usage
