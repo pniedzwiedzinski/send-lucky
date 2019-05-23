@@ -2,7 +2,7 @@
   "name": "lucky",
   "version": "1.0.0",
   "description": "Send lucky number to group",
-  "main": "send_lucky_number.sh",
+  "main": "send_lucky_number.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

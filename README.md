@@ -33,7 +33,7 @@ Create `~/.messer/config.json` and paste there your configuration:
 Finally create container
 
 ```bash
-docker run --name lucky_number -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky send_lucky_number.sh
+docker run --name lucky_number -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky send_lucky_number.js
 ```
 
 ## Usage
