@@ -6,9 +6,6 @@ RUN apt-get update && apt-get install git -y \
 RUN npm install -g messer
 
 ADD . /usr/local/bin
+WORKDIR /usr/local/bin
 
-WORKDIR /home
-
-
-
-
+RUN npm install
