@@ -23,7 +23,7 @@ Create `~/.messer/config.json` and paste there your configuration:
 
 ```json
 {
-  "group": "Your group name",
+  "group": "Your group id (from url)",
   "1": "John Snow",
   "2": "Perry the Platypus",
   "3": "Elon MusK"
