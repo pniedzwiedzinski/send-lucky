@@ -1,0 +1,22 @@
+{
+  "name": "lucky",
+  "version": "1.0.0",
+  "description": "Send lucky number to group",
+  "main": "send_lucky_number.sh",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pniedzwiedzinski/lucky.git"
+  },
+  "author": "Patryk Niedźwiedziński",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pniedzwiedzinski/lucky/issues"
+  },
+  "homepage": "https://github.com/pniedzwiedzinski/lucky#readme",
+  "dependencies": {
+    "messer": "^0.5.2"
+  }
+}
