@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-alpine-node:10.10-3.8-build
+FROM alpine:3.9
 
 RUN apk add --no-cache nodejs nodejs-npm git \
     && rm -rf /var/cache/apk/*
