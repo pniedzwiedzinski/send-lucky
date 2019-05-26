@@ -1,11 +1,18 @@
-FROM node:lts-stretch-slim
+FROM arm32v7/alpine
 
-RUN apt-get update && apt-get install git -y \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache nodejs nodejs-npm git \
+    && rm -rf /var/cache/apk/*
 
-RUN npm install -g messer
+WORKDIR /home
 
-ADD . /usr/local/bin
-WORKDIR /usr/local/bin
+COPY package.json .
 
-RUN npm install
+RUN npm install && \
+    chmod +x node_modules/messer/index.js && \
+    ln node_modules/messer/index.js /usr/local/bin/messer
+
+RUN apk del nodejs-npm git
+
+ADD . /home
+
+CMD [ "./send_lucky_number.js" ]

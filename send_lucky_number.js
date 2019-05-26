@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 
 const Messer = require("messer/src/messer");
 const config = require("/root/.messer/tmp/config.json");
