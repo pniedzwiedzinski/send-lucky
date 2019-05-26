@@ -5,11 +5,15 @@ const config = require("/root/.messer/tmp/config.json");
 
 const messer = new Messer();
 
-messer.messen.login().then(() => {
-  messer.processCommand(`history "Elitarny numerek" 1`).then(res => {
+messer.messen
+  .login()
+  .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
+  .then(res => {
     const lucky = res.substr(31, 2);
     luckyOne = config[parseInt(lucky)];
-
+    return luckyOne;
+  })
+  .then(luckyOne => {
     messer.messen.api.getUserID(luckyOne, (err, data) => {
       let message = {
         body: `Dzisiaj szczęśliwy numerek ma @${luckyOne}`
@@ -33,4 +37,3 @@ messer.messen.login().then(() => {
       );
     });
   });
-});
