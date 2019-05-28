@@ -15,13 +15,21 @@ messer.messen
   .login()
   .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
   .then(res => {
-    const lucky = res.substr(31, 2);
+    const lucky = parseInt(res.substr(31, 2));
     console.log(`Lucky number: ${lucky}`);
-    luckyOne = config[parseInt(lucky)];
+    luckyOne = config[lucky];
+    if (luckyOne === undefined) return lucky;
     console.log(`Lucky person: ${luckyOne}`);
     return luckyOne;
   })
   .then(luckyOne => {
+    if (Number.isInteger(luckyOne)) {
+      let message = {
+        body: `Dzisiaj szczęśliwy numerek to ${luckyOne}`
+      };
+      messer.messen.api.sendMessage(message, config.group);
+      return console.log("Message sent");
+    }
     messer.messen.api.getUserID(luckyOne, (err, data) => {
       console.log("Sending message...");
       let message = {
