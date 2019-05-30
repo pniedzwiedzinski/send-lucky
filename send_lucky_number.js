@@ -15,7 +15,10 @@ messer.messen
   .login()
   .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
   .then(res => {
-    const lucky = parseInt(res.substr(31, 2));
+    console.log(`Elitarny numerek: ${res}`);
+    let lucky = res.substr(31, 2);
+    console.log(`Lucky string: ${lucky}`);
+    lucky = parseInt(lucky);
     console.log(`Lucky number: ${lucky}`);
     luckyOne = config[lucky];
     if (luckyOne === undefined) return lucky;
@@ -23,6 +26,7 @@ messer.messen
     return luckyOne;
   })
   .then(luckyOne => {
+    console.log("Sending message...");
     if (Number.isInteger(luckyOne)) {
       let message = {
         body: `Dzisiaj szczęśliwy numerek to ${luckyOne}`
@@ -31,7 +35,6 @@ messer.messen
       return console.log("Message sent");
     }
     messer.messen.api.getUserID(luckyOne, (err, data) => {
-      console.log("Sending message...");
       let message = {
         body: `Dzisiaj szczęśliwy numerek ma @${luckyOne}`
       };
