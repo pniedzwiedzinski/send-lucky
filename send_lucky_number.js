@@ -18,8 +18,11 @@ messer.messen
     console.log(`Elitarny numerek: ${res}`);
     let lucky = res.substr(31, 2);
     console.log(`Lucky string: ${lucky}`);
+
     lucky = parseInt(lucky);
+    if (lucky === NaN) process.exit(1);
     console.log(`Lucky number: ${lucky}`);
+
     luckyOne = config[lucky];
     if (luckyOne === undefined) return lucky;
     console.log(`Lucky person: ${luckyOne}`);
