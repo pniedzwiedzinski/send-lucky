@@ -5,12 +5,6 @@ const config = require("/root/.messer/tmp/config.json");
 
 const messer = new Messer();
 
-const log = console.log;
-
-console.log = function() {
-  log.apply(console, [Date(Date.now()).toString()].concat(arguments));
-};
-
 messer.messen
   .login()
   .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
