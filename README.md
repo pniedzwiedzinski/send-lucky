@@ -9,8 +9,7 @@ wiadomość do grupy klasowej.
 
 ## Setup
 
-If you're using ARM-like architecture (like RaspberryPi) you need to build image yourself. Clone repo and run
-`docker build . -t pniedzwiedzinski/lucky`
+If you're using ARM-like architecture (like RaspberryPi) you need to use `pniedzwiedzinski/lucky:rpi` or build image yourself. To do that clone repo and run `docker build . -t pniedzwiedzinski/lucky`
 
 ```bash
 docker pull pniedzwiedzinski/lucky
