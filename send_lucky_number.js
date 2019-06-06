@@ -55,4 +55,8 @@ messer.messen
       }
       return console.log("Message sent");
     });
+  })
+  .catch(error => {
+    console.log(error);
+    process.exit(1);
   });
