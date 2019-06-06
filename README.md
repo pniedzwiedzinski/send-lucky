@@ -9,8 +9,7 @@ wiadomość do grupy klasowej.
 
 ## Setup
 
-If you're using ARM-like architecture (like RaspberryPi) you need to build image yourself. Clone repo and run
-`docker build . -t pniedzwiedzinski/lucky`
+If you're using ARM-like architecture (like RaspberryPi) you need to use `pniedzwiedzinski/lucky:rpi` or build image yourself. To do that clone repo and run `docker build . -t pniedzwiedzinski/lucky`
 
 ```bash
 docker pull pniedzwiedzinski/lucky
@@ -33,7 +32,7 @@ Create `~/.messer/config.json` and paste there your configuration:
 Finally create container
 
 ```bash
-docker run --name lucky_number -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky --restart=on-failure send_lucky_number.js
+docker run --name lucky_number --restart=on-failure -v ~/.messer:/root/.messer/tmp pniedzwiedzinski/lucky send_lucky_number.js
 ```
 
 ## Usage
