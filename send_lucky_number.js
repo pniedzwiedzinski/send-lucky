@@ -9,8 +9,9 @@ messer.messen
   .login()
   .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
   .then(res => {
+    let regex = /Dzisiejszy numerek to (\d+)\./;
     console.log(`Elitarny numerek: ${res}`);
-    let lucky = res.substr(31, 2);
+    let lucky = regex.exec(res)[1];
     console.log(`Lucky string: ${lucky}`);
 
     lucky = parseInt(lucky);
