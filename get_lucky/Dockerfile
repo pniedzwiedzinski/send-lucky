@@ -1,10 +1,12 @@
 FROM armhf/alpine
 
-RUN apk update && apk upgrade
-
 RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community > /etc/apk/repositories \
     && echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
-    && apk add --no-cache \
+    && apk update && apk upgrade \
+    && apk add --upgrade apk-tools@edge
+
+    
+RUN apk add --no-cache \
     libstdc++@edge \
     chromium@edge \
     harfbuzz@edge \
