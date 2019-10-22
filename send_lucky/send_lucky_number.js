@@ -7,11 +7,8 @@ const messer = new Messer();
 
 messer.messen
   .login()
-  .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
-  .then(res => {
-    let regex = /Dzisiejszy numerek to (\d+)\./;
-    console.log(`Elitarny numerek: ${res}`);
-    let lucky = regex.exec(res)[1];
+  .then(() => {
+    let lucky = process.env.LUCKY;
     console.log(`Lucky string: ${lucky}`);
 
     lucky = parseInt(lucky);

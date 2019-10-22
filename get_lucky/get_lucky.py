@@ -3,11 +3,19 @@ from time import sleep
 from json import dumps
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 login = os.environ["VULCAN_LOGIN"]
 password = os.environ["VULCAN_PASSWORD"]
 
-driver = webdriver.Chrome(executable_path='./get_lucky/chromedriver')
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")
+options.add_argument("--disable-software-rasterizer")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--no-sandbox")
+
+driver = webdriver.Chrome(options=options)
 driver.get("https://cufs.vulcan.net.pl/poznan/Account/LogOn?ReturnUrl=%2Fpoznan%2FFS%2FLS%3Fwa%3Dwsignin1.0%26wtrealm%3Dhttps%253a%252f%252fuonetplus.vulcan.net.pl%252fpoznan%252fLoginEndpoint.aspx%26wctx%3Dhttps%253a%252f%252fuonetplus.vulcan.net.pl%252fpoznan%252fLoginEndpoint.aspx")
 
 login_input = driver.find_element_by_id("LoginName")
