@@ -1,17 +1,19 @@
 #!/usr/bin/node
 
+const fetch = require("node-fetch");
 const Messer = require("messer/src/messer");
 const config = require("/root/.messer/tmp/config.json");
+
+const url = "https://get-lucky.netlify.com/.netlify/functions/get";
 
 const messer = new Messer();
 
 messer.messen
   .login()
-  .then(() => messer.processCommand(`history "Elitarny numerek" 1`))
-  .then(res => {
-    let regex = /Dzisiejszy numerek to (\d+)\./;
-    console.log(`Elitarny numerek: ${res}`);
-    let lucky = regex.exec(res)[1];
+  .then(() => fetch(url))
+  .then(r => r.json())
+  .then(apiResponse => {
+    let lucky = apiResponse.data;
     console.log(`Lucky string: ${lucky}`);
 
     lucky = parseInt(lucky);
